@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+    <title>Login to employee management</title>
+</head>
+<body>
+    <header class="header">
+        <h2>Employee Management</h2>
+        <button id="registerbtn">Register</button>
+    </header>
+
+    <div>
+        <form id="loginform" action="loginuser">
+            <label for="username">User Name:</label>
+            <input id="username" type="text" placeholder="username">
+            <label for="password">Password</label>
+            <input  id="password" type="text" placeholder="password">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="js/authService.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

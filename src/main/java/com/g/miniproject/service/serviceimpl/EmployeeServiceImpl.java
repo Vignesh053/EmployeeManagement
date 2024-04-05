@@ -2,7 +2,8 @@ package com.g.miniproject.service.serviceimpl;
 
 import com.g.miniproject.entity.Employee;
 import com.g.miniproject.exception.EmailAlreadyExistsException;
-import com.g.miniproject.exception.EmployeeNotFoundException;
+
+import com.g.miniproject.exception.ResourceNotFoundException;
 import com.g.miniproject.repository.EmployeeRepository;
 import com.g.miniproject.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee fetchEmployee(Long id) {
         return employeeRepository.findById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException("Employee", "id", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", String.valueOf(id)));
     }
 
     @Override
@@ -43,9 +44,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee updateEmployee(Employee employee, Long id) {
-        Employee oldEmployee = employeeRepository.findById(id).orElseThrow(() ->
-                new EmployeeNotFoundException("Employee", "id", id)
-        );
+        Employee oldEmployee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "id", String.valueOf(id)));
 
         oldEmployee.setFirstname(employee.getFirstname());
         oldEmployee.setLastname(employee.getLastname());

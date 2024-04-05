@@ -1,10 +1,14 @@
 package com.g.miniproject.controller;
 
+import com.g.miniproject.dto.LoginDto;
 import com.g.miniproject.entity.Employee;
+import com.g.miniproject.security.JwtTokenUtil;
 import com.g.miniproject.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +20,14 @@ import java.util.List;
 public class EmployeeController {
 
     private EmployeeService employeeService;
+
+    private AuthenticationManager authenticationManager;
+
+    private JwtTokenUtil jwtTokenUtil;
+
+
+
+
 
     @GetMapping("/fetchlist")
     public ResponseEntity<List<Employee>> fetchList(){

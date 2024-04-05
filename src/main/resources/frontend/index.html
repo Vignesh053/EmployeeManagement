@@ -1,91 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Employee Management</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
-    </head>
-    <body>
-        <header class="header">
-            <h2>Employee Management</h2>
-        </header>
-        <h1>Users List</h1>
-        <div>
-            <button id="addemployee">Add Employee</button>
-            <!-- create a form for first and last name and email -->
-            <form id="addemployeeform" action="addemployee" style="display: none;">
-                <label for="firstname">First name:</label>
-                <input id="firstname" type="text" placeholder="firstname">
-                <label for="lastname">Last name:</label>
-                <input id="lastname" type="text" placeholder="lastname">
-                <label for="email">Email:</label>
-                <input id="email" type="text" placeholder="Example@gmail.com">
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        
-        <div id="employeetablecontainer" style="display: block;">
-            <table id="employeetable">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email Id</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <td>john</td>
-                    <td>doe</td>
-                    <td>tesy@gmail.com</td>
-                    <td>
-                        <button>Update</button>
-                        <button>Delete</button>
-                        <button>View</button>
-                    </td>
-                    
-                </tr>
-                
-                <tr>
-                    <td>peter</td>
-                    <td>griffin</td>
-                    <td>petah@gmail.com</td>
-                    <td>
-                        <button>Update</button>
-                        <button>Delete</button>
-                        <button>View</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>lois</td>
-                    <td>griffin</td>
-                    <td>griffin@gmail.com</td>
-                    <td>
-                        <button>Update</button>
-                        <button>Delete</button>
-                        <button>View</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
+  <head>
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+      integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h2>Employee Management</h2>
+      <button id="logoutbtn">Logout</button>
+    </header>
+    <h1>Employee List</h1>
+    <div>
+      <button id="addemployee">Add Employee</button>
 
-        <div id="updateemployeecontainer" style="display: none;">
-            <form id="updateemployeeform" action="updateemployee" >
-                <label for="updatefirstname">First name:</label>
-                <input id="updatefirstname" type="text" >
-                <br>
-                <label for="updatelastname">Last name:</label>
-                <input id="updatelastname" type="text" >
-                <br>
-                <label for="updateemail">Email:</label>
-                <input id="updateemail" type="text">
-                <br>
-                <button type="submit">Submit</button>
-                
-            </form>
-            <button id="backbtn">Back</button>
-        </div>
-        <script src="api.js"></script>
-        
-        <script src="index.js"></script>
-    </body>
+      <form id="addemployeeform" action="addemployee" style="display: none">
+        <label for="firstname">First name:</label>
+        <input id="firstname" type="text" placeholder="firstname" />
+        <label for="lastname">Last name:</label>
+        <input id="lastname" type="text" placeholder="lastname" />
+        <label for="email">Email:</label>
+        <input id="email" type="text" placeholder="Example@gmail.com" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div id="employeetablecontainer" style="display: block">
+      <table id="employeetable">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email Id</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td>john</td>
+          <td>doe</td>
+          <td>tesy@gmail.com</td>
+          <td>
+            <button>Update</button>
+            <button>Delete</button>
+            <button>View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>peter</td>
+          <td>griffin</td>
+          <td>petah@gmail.com</td>
+          <td>
+            <button>Update</button>
+            <button>Delete</button>
+            <button>View</button>
+          </td>
+        </tr>
+        <tr>
+          <td>lois</td>
+          <td>griffin</td>
+          <td>griffin@gmail.com</td>
+          <td>
+            <button>Update</button>
+            <button>Delete</button>
+            <button>View</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="updateemployeecontainer" style="display: none">
+      <h2>Update employee</h2>
+      <form id="updateemployeeform" action="updateemployee">
+        <label for="updatefirstname">First name:</label>
+        <input id="updatefirstname" type="text" />
+        <br />
+        <label for="updatelastname">Last name:</label>
+        <input id="updatelastname" type="text" />
+        <br />
+        <label for="updateemail">Email:</label>
+        <input id="updateemail" type="text" />
+        <br />
+        <button type="submit">Update</button>
+      </form>
+      <button id="backbtn">Back</button>
+    </div>
+
+    <div id="viewemployeecontainer" style="display: none">
+      <button id="backbtn">Back</button>
+    </div>
+
+    <script src="js/authService.js"></script>
+    <script src="js/employeeService.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
