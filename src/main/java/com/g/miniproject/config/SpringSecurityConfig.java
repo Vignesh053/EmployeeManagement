@@ -22,12 +22,14 @@ public class SpringSecurityConfig {
 
     private JwtTokenFilter jwtTokenFilter;
 
+    //create bean for bcrypt password encoder in spring IOC
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
 
+    //filter chain where the flow of chain is controlled
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeHttpRequests(auth ->{

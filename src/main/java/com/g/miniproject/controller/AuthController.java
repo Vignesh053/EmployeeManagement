@@ -17,10 +17,13 @@ public class AuthController {
 
     private AuthService authService;
 
+    // register user by accepting user details as request body
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
         return new ResponseEntity<>(authService.registerUser(registerDto), HttpStatus.OK);
     }
+
+    // login user by accepting username and password
     @PostMapping("/login")
     public ResponseEntity<JwtAuthResponse> login(@RequestBody LoginDto logindto){
         return new ResponseEntity<>(authService.loginUser(logindto), HttpStatus.OK);
